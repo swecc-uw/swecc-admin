@@ -13,7 +13,7 @@ import {
   VStack,
   Icon,
 } from '@chakra-ui/react';
-import { List, Terminal } from 'lucide-react';
+import { Code, Users, List, MessageSquare, Terminal } from 'lucide-react';
 
 interface AdminCardProps {
   title: string;
@@ -75,6 +75,60 @@ const AdminCard: React.FC<AdminCardProps> = ({
 
 export default function AdminDashboard() {
   const sections: AdminCardProps[] = [
+    {
+      title: 'Technical Questions',
+      description:
+        'Manage technical interview questions, create new ones, and organize the question queue.',
+      icon: Code,
+      primaryAction: {
+        label: 'View All Questions',
+        to: '/questions/technical/',
+      },
+      secondaryActions: [
+        {
+          label: 'Create New Question',
+          to: '/questions/technical/create',
+        },
+        {
+          label: 'Manage Queue',
+          to: '/questions/queue/technical',
+        },
+      ],
+    },
+    {
+      title: 'Behavioral Questions',
+      description:
+        'Organize behavioral interview questions and manage the question queue.',
+      icon: MessageSquare,
+      primaryAction: {
+        label: 'Manage Queue',
+        to: '/questions/queue/behavioral',
+      },
+    },
+    {
+      title: 'Pairing',
+      description: 'Run pairing jobs',
+      icon: Users,
+      primaryAction: {
+        label: 'View Pairing Dashboard',
+        to: '/pairing',
+      },
+      secondaryActions: [
+        {
+          label: 'View Signup Heatmap',
+          to: '/signups',
+        },
+      ],
+    },
+    {
+      title: 'Reports',
+      description: 'View and Manage User Reports',
+      icon: Users,
+      primaryAction: {
+        label: 'View Reports',
+        to: '/reports',
+      },
+    },
     {
       title: 'Utils',
       description: 'Miscellaneous utilities',

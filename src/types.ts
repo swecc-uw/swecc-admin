@@ -235,6 +235,7 @@ export interface RawReport {
   admin_notes?: string;
   associated_id?: string;
   associated_object?: RawReportObject;
+  assignee?: number;
 }
 
 export interface Report {
@@ -249,6 +250,7 @@ export interface Report {
   adminNotes?: string;
   associatedId?: string;
   associatedObject?: ReportObject;
+  assignee?: number;
 }
 
 export interface RawInterViewPoolStatus {
