@@ -16,7 +16,14 @@ import AdminRoute from './components/admin/AdminRoute';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ResetPasswordForm from './pages/ResetPassword';
 import AdminConsolePage from './pages/admin/AdminConsolePage';
+import PairInterviewDashboard from './pages/admin/PairingDashboard';
 import APIClient from './pages/admin/APIClient';
+import QuestionQueueDashboard from './pages/admin/QuestionQueueDashboard';
+import ReportDashboard from './pages/admin/ReportDashboard';
+import TechnicalQuestionCreateEditPage from './pages/admin/TechnicalQuestionCreateEditPage';
+import TechnicalQuestionsPage from './pages/admin/TechnicalQuestionsPage';
+import { QuestionType } from './types';
+import HeatMapPage from './pages/admin/HeatMapPage';
 
 const App: React.FC = () => {
   return (
@@ -74,6 +81,90 @@ const App: React.FC = () => {
                   <DevRoute>
                     <ProtectedPage />
                   </DevRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/signups/"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <HeatMapPage />
+                  </AdminRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/questions/queue/technical"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <QuestionQueueDashboard
+                      questionType={QuestionType.Technical}
+                    />
+                  </AdminRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/questions/queue/behavioral"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <QuestionQueueDashboard
+                      questionType={QuestionType.Behavioral}
+                    />
+                  </AdminRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/questions/technical/"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <TechnicalQuestionsPage />
+                  </AdminRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/questions/technical/create"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <TechnicalQuestionCreateEditPage />
+                  </AdminRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/questions/technical/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <TechnicalQuestionCreateEditPage />
+                  </AdminRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/pairing"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <PairInterviewDashboard />
+                  </AdminRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/reports"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <ReportDashboard />
+                  </AdminRoute>
                 </ProtectedRoute>
               }
             />
