@@ -16,6 +16,7 @@ import AdminRoute from './components/admin/AdminRoute';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ResetPasswordForm from './pages/ResetPassword';
 import AdminConsolePage from './pages/admin/AdminConsolePage';
+import APIClient from './pages/admin/APIClient';
 
 const App: React.FC = () => {
   return (
@@ -73,6 +74,16 @@ const App: React.FC = () => {
                   <DevRoute>
                     <ProtectedPage />
                   </DevRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/api-client"
+              element={
+                <ProtectedRoute>
+                  <AdminRoute>
+                    <APIClient />
+                  </AdminRoute>
                 </ProtectedRoute>
               }
             />
